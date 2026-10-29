@@ -1,0 +1,24 @@
+name: Bug report
+description: Report a reproducible problem using sanitized details.
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Package, Python, OS, and firmware versions if known; hardware or offline use.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Include a minimal example and the command used. Never include credentials or private recordings.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and observed behavior
+      description: Include sanitized errors and proof verification policy if relevant. No auth dumps, keys, tokens, or receipts.
+    validations:
+      required: true

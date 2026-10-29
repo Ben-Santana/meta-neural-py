@@ -1,0 +1,9 @@
+meta-neural-py includes Python adaptations of Kinesis protocol, enrollment,
+authentication, data models, and native connection behavior:
+https://github.com/callbacked/kinesis
+Pinned reference: 5c78485f48c0758e2ce46ee11d3aaa070d827b75
+Copyright (c) 2026 callbacked. MIT License; see LICENSE.
+
+The unlicensed neural-band-poc implementation has not been copied into this
+package. No firmware, model binaries, credentials, or real sensor captures
+are included. This project is not affiliated with or endorsed by Meta.

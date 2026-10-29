@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "meta-neural-py"
+version = "0.1.0a1"
+description = "Experimental direct Meta Neural Band access for Python"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE", "NOTICE"]
+dependencies = [
+  "cryptography>=43",
+  "pyobjc-framework-CoreBluetooth>=10.3; sys_platform == 'darwin'",
+  "pyobjc-framework-Security>=10.3; sys_platform == 'darwin'",
+  "pyobjc-framework-WebKit>=10.3; sys_platform == 'darwin'",
+]
+classifiers = ["Development Status :: 3 - Alpha", "Typing :: Typed", "Operating System :: MacOS"]
+
+[project.urls]
+Repository = "https://github.com/Ben-Santana/meta-neural-py"
+Documentation = "https://ben-santana.github.io/meta-neural-py/"
+Issues = "https://github.com/Ben-Santana/meta-neural-py/issues"
+
+[project.optional-dependencies]
+numpy = ["numpy>=1.26"]
+release = ["build>=1.2", "twine>=6"]
+dev = ["pytest>=8", "pytest-asyncio>=0.24", "build>=1.2", "ruff==0.17.3", "mypy>=1.13", "pre-commit>=4"]
+docs = ["mkdocs>=1.6,<2", "mkdocs-material>=9.6,<10"]
+
+[project.scripts]
+meta-neural = "meta_neural_py.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/meta_neural_py"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/src", "/tests", "/examples", "/docs", "/README.md", "/CHANGELOG.md", "/NOTICE", "/LICENSE", "/pyproject.toml", "/CONTRIBUTING.md", "/mkdocs.yml"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+check_untyped_defs = true
+exclude = ["_native.py", "_login.py"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "UP", "B"]
