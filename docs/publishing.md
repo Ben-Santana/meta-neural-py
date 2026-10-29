@@ -49,24 +49,19 @@ Official references:
 - https://packaging.python.org/en/latest/tutorials/packaging-projects/
 - https://docs.pypi.org/api/upload/
 
-## GitHub repository and Pages
+## GitHub repository and documentation
 
-Before the first push, inspect `git status --short` and the staged file list.
-Exclude virtual environments, caches, build outputs, account data, identities,
-receipts, and private recordings. Keep LICENSE and NOTICE. The source distribution
-uses an explicit include list; inspect wheel and source archive contents too.
+The source repository is [Ben-Santana/meta-neural-py](https://github.com/Ben-Santana/meta-neural-py).
+Documentation lives in `docs/` and is browsable through the
+[documentation index](index.md). Submit documentation changes in pull requests
+alongside code changes. Keep setup and API guidance versioned with the library.
+No hosted site or Wiki is required.
 
-Once the GitHub owner/repository is chosen, set `[project.urls]` in
-`pyproject.toml` for Repository, Documentation, and Issues. Set `repo_url` and
-`site_url` in `mkdocs.yml` to the repository and its actual Pages URL. Do not
-publish placeholder links. Initialize the local repository on `main`, prepare the
-initial commit, and push to the intended public GitHub repository.
+Before pushing, inspect `git status --short` and the staged file list. Exclude
+virtual environments, caches, build outputs, account data, identities, receipts,
+and private recordings. Keep LICENSE and NOTICE. The source distribution uses an
+explicit include list; inspect wheel and source archive contents too.
 
-In repository Settings → Pages, select **GitHub Actions** as the source. The
-`documentation` workflow checks every PR and deploys only the default branch.
-No PyPI upload occurs. Preview locally with `mkdocs serve`; validate with
-`mkdocs build --strict`. Relative URLs support project Pages subpaths.
-
-The site uses MkDocs Material with navigation and search. The site contribution
-page is generated from the root CONTRIBUTING.md by `docs/hooks.py`; edit the root
-guide. Documentation dependencies are isolated in the `docs` extra.
+Package metadata links to the repository, documentation index, and issues.
+CI checks offline tests, lint, formatting, types, and packaging. A push does not
+publish a PyPI release.

@@ -11,7 +11,7 @@ Clone the repository, enter its directory, then use Python 3.11+:
 ```sh
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install -e '.[dev,docs,release]'
+python -m pip install -e '.[dev,release]'
 pre-commit install
 ```
 
@@ -23,15 +23,16 @@ ruff check src tests examples
 ruff format --check src tests examples
 mypy src/meta_neural_py
 pytest
-mkdocs build --strict
 python -m build --outdir /tmp/meta-neural-dist
 python -m twine check --strict /tmp/meta-neural-dist/*
 ```
 
 Use a fresh output directory for each package validation. CI runs offline tests
-on Linux/macOS with Python 3.11–3.13, plus lint, types, docs, and packaging checks.
+on Linux/macOS with Python 3.11–3.13, plus lint, types, and packaging checks.
 Pre-commit runs Ruff lint and formatting; it may modify files, so review and stage
-those changes before committing. Preview documentation with `mkdocs serve`.
+those changes before committing. Documentation is plain Markdown in `docs/`; preview it directly on GitHub.
+Keep relative links working and update the [documentation index](docs/index.md)
+when adding a guide.
 
 ## Pull requests and reports
 
@@ -54,5 +55,5 @@ recovery path. Report the host/firmware, duration, stream profile, drops, and pr
 verification policy when describing a hardware result.
 
 Preserve the MIT license and reference provenance in NOTICE. See
-[publishing](docs/publishing.md) for release and GitHub Pages setup; a passing PR
+[publishing](docs/publishing.md) for releases and repository setup; a passing PR
 does not publish a package.

@@ -80,7 +80,7 @@ connection. Connection and reconnect never enroll automatically.
 
 ## Learn and contribute
 
-[Documentation website](https://ben-santana.github.io/meta-neural-py/) ·
+[Documentation](docs/index.md) ·
 [Report a bug](https://github.com/Ben-Santana/meta-neural-py/issues)
 
 - [Getting started](docs/getting-started.md) and [usage](docs/usage.md)
